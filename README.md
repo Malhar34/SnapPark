@@ -1,44 +1,34 @@
-# Hacklytics-2026
+# SnapPark 🅿️
 
-**Track B — City-Wide Mapping:** Generate a comprehensive parking map for a city or metro area, identifying and counting parking across the entire geography. Think: "Show me every surface parking lot in Atlanta and how many spots each has."
+A full-stack web app that classifies parking lots from satellite imagery for commercial real-estate optimization — built at Georgia Tech's Data Science Hackathon.
 
-Track B is more ambitious and will be weighted favorably in judging — but a highly accurate Track A submission beats a sloppy city-wide map. Quality over quantity.
+> 🏅 Top 10 of 730+ teams · CTO recognition from GrowthFactor.ai
 
-![alt text](image.png)
+This is a team project. My contribution focused on **UI/design, front-end, and project coordination**.
 
-## Suggested Data Sources
+## My Role
 
-Sourcing and combining data is part of the challenge. Here are starting points:
+- Designed the application interface in **Figma** and contributed to the front-end.
+- Managed the shared GitHub repository — integrating and committing the team's work throughout the hackathon.
+- Helped produce and edit the project demo presented to the GrowthFactor.ai CTO.
 
-- **ParkSeg12k** — 12,617 satellite image/mask pairs covering ~35,000 parking lots across 45 US cities (RGB + NIR channels available). [GitHub: UTEL-UIUC/ParkSeg12k](https://github.com/UTEL-UIUC/ParkSeg12k)
-- **SpaceNet** — High-resolution satellite imagery competitions with building/road annotations that provide useful context. [spacenet.ai](https://spacenet.ai/)
-- **APKLOT** — ~7,000 annotated polygons for aerial parking block segmentation from global cities. [GitHub: langheran/APKLOT](https://github.com/langheran/APKLOT)
-- **Grab-Pklot** — 1,344 context-enriched satellite images with parking lot annotations from Singapore. [WACV 2022 paper](https://openaccess.thecvf.com/content/WACV2022/html/Yin_A_Context-Enriched_Satellite_Imagery_Dataset_and_an_Approach_for_Parking_WACV_2022_paper.html)
-- **Google Maps Static API / Google Earth Engine** — For pulling satellite tiles of specific locations
-- **OpenStreetMap** — Parking lot polygons and metadata as weak labels or validation data
-- **NAIP (National Agriculture Imagery Program)** — Free high-res US aerial imagery via USGS
+The Python computer-vision backend (YOLO evaluation + classical CV pipeline for segmentation and parking-layout computation) was led by my teammates.
 
-Teams are encouraged to combine multiple sources and get creative with data augmentation, transfer learning, or using auxiliary signals (road networks, building footprints, zoning data) to improve results.
+## What It Does
 
-## Things to Consider
+- Classifies parking lots from satellite imagery
+- Generates segmentation overlays and computes optimal parking layouts against U.S. regulations
+- React front-end with real-time map integration
 
-Parking isn't just surface lots. In urban environments like Atlanta, a huge share of parking capacity is hidden from the satellite view:
+## Tech Stack
 
-- **Parking garages / structures** — Multi-level garages are invisible from above. Can you detect their footprint and estimate capacity using building height data, municipal records, or other signals? Teams that account for structured parking will stand out.
-- **Street parking** — On-street spots are everywhere but hard to count from imagery alone. Can you estimate street parking by analyzing road widths, curb lengths, and restriction zones? Combining satellite data with OpenStreetMap road networks or Google Street View could be powerful here.
-- **Parking restrictions** — Not all visible pavement is a legal parking spot. Fire lanes, loading zones, handicap-only, time-limited meters, residential permit zones — identifying restrictions adds real-world value. Municipal open data or street-level imagery could help.
+Figma (design) · React · Python · Computer Vision (YOLO) · REST API
 
-You don't have to solve all of these, but acknowledging and attempting to handle these edge cases shows maturity in your approach.
+## Status
 
-## Suggested Approaches
+Built as a hackathon prototype; not currently set up to run end-to-end without the original environment and dependencies.
 
-These are suggestions, not requirements — surprise us:
+## Author
 
-- **Semantic segmentation** to detect parking lot boundaries, then estimate spot count by area + standard spot dimensions
-- **Object detection** (YOLO, Faster R-CNN) to directly count individual vehicles or spot markings
-- **Multi-stage pipelines** — coarse lot detection from low-res imagery, then fine-grained spot counting from high-res tiles
-- **Hybrid approaches** — combine satellite detection with OpenStreetMap metadata, Google Places API parking data, or municipal open data for validation
-
-## Rules & Submission
-
-- *Include a clear evaluation section showing your accuracy metrics on at least 2 distinct geographic areas*
+**Malhar Rathod** — Computer Engineering @ Georgia Tech · [LinkedIn](https://www.linkedin.com/in/malhar-rathod)
+*Forked from danteorbit/hacklytics-2026.*
